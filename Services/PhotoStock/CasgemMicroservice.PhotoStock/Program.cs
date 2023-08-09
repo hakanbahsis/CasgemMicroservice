@@ -1,9 +1,5 @@
-using CasgemMicroservice.Services.Catalog.Services.CategoryServices;
-using CasgemMicroservice.Services.Catalog.Services.ProductServices;
-using CasgemMicroservice.Services.Catalog.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Options;
-using System.Reflection;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,20 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.Authority = builder.Configuration["IdentityServerUrl"];
-    options.Audience = "resource_catalog";
+    options.Audience = "resource_photostock";
     options.RequireHttpsMetadata = false;
 });
 
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
-builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("DatabaseSettings"));
-builder.Services.AddSingleton<IDatabaseSettings>(opt =>
-{
-    return opt.GetRequiredService<IOptions<DatabaseSettings>>().Value;
-});
 
-builder.Services.AddControllers();
+//controller bazlý authorize
+//authorize proje seviyesine çýkarýyor
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add(new AuthorizeFilter());
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,6 +33,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
