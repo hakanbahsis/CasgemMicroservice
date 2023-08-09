@@ -1,12 +1,12 @@
 {
   "profiles": {
-    "SelfHost": {
+    "CasgemMicroservice.Shared": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:5001"
+      "applicationUrl": "https://localhost:61803;http://localhost:61804"
     }
   }
 }
