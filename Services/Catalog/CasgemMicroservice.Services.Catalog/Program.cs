@@ -25,6 +25,7 @@ builder.Services.AddSingleton<IDatabaseSettings>(opt =>
     return opt.GetRequiredService<IOptions<DatabaseSettings>>().Value;
 });
 
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

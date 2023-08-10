@@ -1,39 +1,33 @@
-using CasgemMicroservice.Services.Basket.Services;
-using CasgemMicroservice.Services.Basket.Settings;
-using CasgemMicroservice.Shared.Services;
+using CasgemMicroservice.Services.Discount.Models;
+using CasgemMicroservice.Services.Discount.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using System.IdentityModel.Tokens.Jwt;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-var requireAuthorizePolicy=new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
     opt.Authority = builder.Configuration["IdentityServerUrl"];
-    opt.Audience = "resource_basket";
+    opt.Audience = "resource_discount";
     opt.RequireHttpsMetadata = false;
 });
+// Add services to the container.
 
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>();
-builder.Services.AddScoped<IBasketService, BasketService>();
+builder.Services.AddDbContext<Context>();
+builder.Services.AddScoped<IDiscountService,DiscountService>();
 
-builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddSingleton<RedisService>(sp =>
-{
-    var redisSettings=sp.GetRequiredService<IOptions<RedisSettings>>().Value;
-    var redis=new RedisService(redisSettings.Host, redisSettings.Port);
-    redis.Connect();
-    return redis;
-});
+
+
 
 builder.Services.AddControllers(opt =>
 {
