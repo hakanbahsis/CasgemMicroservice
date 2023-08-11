@@ -43,7 +43,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasgemMicroservice.PhotoSto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasgemMicroservice.Services.Basket", "Services\Basket\CasgemMicroservice.Services.Basket\CasgemMicroservice.Services.Basket.csproj", "{1F833EE3-5577-45D9-B012-A1D1027C6770}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasgemMicroservice.Services.Discount", "Services\Discount\CasgemMicroservice.Services.Discount\CasgemMicroservice.Services.Discount.csproj", "{54A8C1BC-8F5C-4F49-BD9D-66ADB41DE781}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CasgemMicroservice.Services.Discount", "Services\Discount\CasgemMicroservice.Services.Discount\CasgemMicroservice.Services.Discount.csproj", "{54A8C1BC-8F5C-4F49-BD9D-66ADB41DE781}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{56FEDD08-EF0D-47BE-922B-68C0164C6581}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{349D2702-108C-44EF-8435-F7875DC428AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{1A5E9594-222B-42BB-B7C2-D27A49E00053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasgemMicroservice.Services.Order.Core.Domain", "Services\Order\Core\CasgemMicroservice.Services.Order.Core.Domain\CasgemMicroservice.Services.Order.Core.Domain.csproj", "{1A283DDA-4EC1-469B-AB7B-7DD0A480607A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasgemMicroservice.Services.Order.Core.Application", "Services\Order\Core\CasgemMicroservice.Services.Order.Core.Application\CasgemMicroservice.Services.Order.Core.Application.csproj", "{E184A95F-1708-4E54-8F1F-402D8A447569}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasgemMicroservice.Services.Order.Infrastructure.Persistance", "Services\Order\Infrastructure\CasgemMicroservice.Services.Order.Infrastructure.Persistance\CasgemMicroservice.Services.Order.Infrastructure.Persistance.csproj", "{50A41411-4B89-4BD1-BC55-9118971C96E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CasgemMicroservice.Services.Order.Presentation.Api", "Services\Order\Presentation\CasgemMicroservice.Services.Order.Presentation.Api\CasgemMicroservice.Services.Order.Presentation.Api.csproj", "{C809B341-BF61-4116-87E3-93F23A50BD5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +89,22 @@ Global
 		{54A8C1BC-8F5C-4F49-BD9D-66ADB41DE781}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54A8C1BC-8F5C-4F49-BD9D-66ADB41DE781}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54A8C1BC-8F5C-4F49-BD9D-66ADB41DE781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A283DDA-4EC1-469B-AB7B-7DD0A480607A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A283DDA-4EC1-469B-AB7B-7DD0A480607A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A283DDA-4EC1-469B-AB7B-7DD0A480607A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A283DDA-4EC1-469B-AB7B-7DD0A480607A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E184A95F-1708-4E54-8F1F-402D8A447569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E184A95F-1708-4E54-8F1F-402D8A447569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E184A95F-1708-4E54-8F1F-402D8A447569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E184A95F-1708-4E54-8F1F-402D8A447569}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50A41411-4B89-4BD1-BC55-9118971C96E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A41411-4B89-4BD1-BC55-9118971C96E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A41411-4B89-4BD1-BC55-9118971C96E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A41411-4B89-4BD1-BC55-9118971C96E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C809B341-BF61-4116-87E3-93F23A50BD5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C809B341-BF61-4116-87E3-93F23A50BD5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C809B341-BF61-4116-87E3-93F23A50BD5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C809B341-BF61-4116-87E3-93F23A50BD5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +123,13 @@ Global
 		{04FC3E83-A681-4486-8774-244C9B44976B} = {599B2B9E-F08C-4855-9171-34D417C5DF03}
 		{1F833EE3-5577-45D9-B012-A1D1027C6770} = {D126A155-6B19-4E8A-9A0E-3F4F415AEA51}
 		{54A8C1BC-8F5C-4F49-BD9D-66ADB41DE781} = {393313A9-7D0A-422D-BDB2-DCEFB5A27A35}
+		{56FEDD08-EF0D-47BE-922B-68C0164C6581} = {E8270295-79C4-4489-9069-B3E6357CEF9A}
+		{349D2702-108C-44EF-8435-F7875DC428AD} = {E8270295-79C4-4489-9069-B3E6357CEF9A}
+		{1A5E9594-222B-42BB-B7C2-D27A49E00053} = {E8270295-79C4-4489-9069-B3E6357CEF9A}
+		{1A283DDA-4EC1-469B-AB7B-7DD0A480607A} = {56FEDD08-EF0D-47BE-922B-68C0164C6581}
+		{E184A95F-1708-4E54-8F1F-402D8A447569} = {56FEDD08-EF0D-47BE-922B-68C0164C6581}
+		{50A41411-4B89-4BD1-BC55-9118971C96E1} = {349D2702-108C-44EF-8435-F7875DC428AD}
+		{C809B341-BF61-4116-87E3-93F23A50BD5F} = {1A5E9594-222B-42BB-B7C2-D27A49E00053}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B158AB17-88E9-495F-9C1F-96C68515F14F}
