@@ -1,12 +1,13 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CasgemMicroservice.Services.Order.Core.Application.Dtos.OrderDetailDtos
+namespace CasgemMicroservice.Services.Order.Core.Application.Features.CQRS.Commands
 {
-    public class UpdateOrderDetailDto
+    public class UpdateOrderDetailCommandRequest:IRequest
     {
         public int OrderDetailId { get; set; }
         public string ProductId { get; set; }
