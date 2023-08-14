@@ -15,7 +15,7 @@ namespace CasgemMicroservice.Services.Discount.Models
         //    _connectionString = _configuration.GetConnectionString("DefaultConnection");
         //}
 
-      //  public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
+      //public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server=localhost,1433;Database=DiscountDb;User=sa;Password=123456Aa*;");
