@@ -1,9 +1,11 @@
 ﻿using CasgemMicroservice.Services.Order.Core.Application.Interfaces;
+using CasgemMicroservice.Services.Order.Core.Domain.Entities;
 using CasgemMicroservice.Services.Order.Infrastructure.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,6 +34,13 @@ namespace CasgemMicroservice.Services.Order.Infrastructure.Persistance.Repositor
 			return entity;
 		}
 
+		public async Task<List<T>> Get(Expression<Func<T, bool>> filter)
+		{
+			return filter == null
+				   ? await _context.Set<T>().ToListAsync()
+				   : await _context.Set<T>().Where(filter).ToListAsync();
+		}
+
 		public async Task<List<T>> GetAllAsync()
 		{
 			return await _context.Set<T>().AsNoTracking().ToListAsync();
@@ -41,6 +50,7 @@ namespace CasgemMicroservice.Services.Order.Infrastructure.Persistance.Repositor
 		{
 			return await _context.Set<T>().FindAsync(id);
 		}
+
 
 		public async Task<T> UpdateAsync(T entity)
 		{

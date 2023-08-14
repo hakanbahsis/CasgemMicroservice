@@ -17,8 +17,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     opt.Audience = "resource_discount";
     opt.RequireHttpsMetadata = false;
 });
-// Add services to the container.
 
+// Add services to the container.
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<Context>();
 builder.Services.AddScoped<IDiscountService,DiscountService>();

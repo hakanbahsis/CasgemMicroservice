@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CasgemMicroservice.Services.Order.Core.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,5 +15,8 @@ namespace CasgemMicroservice.Services.Order.Core.Application.Interfaces
         Task<T> CreateAsync(T entity);
         Task<T> UpdateAsync(T entity);
         Task<T> DeleteAsync(T entity);
-    }
+        Task<List<T>> Get(Expression<Func<T, bool>> filter);
+
+
+	}
 }
